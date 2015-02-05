@@ -6,7 +6,7 @@
 </head>
 <body>
 	<h2>Редактирование баннера</h2>
-	<form method="post" action="" name="my_form">
+	<form method="post" action="add_banner.php" name="my_form">
 		<p>Название :</p><br>
 		<input type="text" name="label"><br>
 		<p>Включить или выключить баннер :</p><br>
@@ -21,8 +21,8 @@
 			<option  value="contacts">Страница контактов</option>
 		</select><br>
 		<p>Дата и время отображения баннера(начало и конец) :</p><br>
-		<p>Начало :<input type="datetime" name="dt_start">
-		Конец  :<input type="datetime" name="dt_end"></p><br>
+		<p>Начало :<input type="text" name="dt_start">
+		Конец  :<input type="text" name="dt_end"></p><br>
 		<p>Минимальное количество просмотров страницы : </p><br>
 		<select name="min_page" size="1">
 			<option value="0" selected>0</option>
@@ -34,7 +34,7 @@
 		</select><br>
 		<p>Комментарий :</p><Br>
    		<textarea name="comment" cols="40" rows="3"></textarea><br>
-  		<p><input type="submit" value="Редактирование">
+  		<p><input type="submit" name="submit" value="Редактирование">
    		<input type="reset" value="Очистить"></p>
 	</form>
 </body>
