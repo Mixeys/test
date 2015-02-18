@@ -3,12 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Edit banner</title>
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<h2>Редактирование баннера</h2>
-	<form method="post" action="add_banner.php" name="my_form">
+	<hr>
+	<form method="post" action="add_banner.php" name="my_form" class="form-horizontal">
 		<p>Название :</p><br>
-		<input type="text" name="label"><br>
+		<input type="text" name="label" placeholder="Name banner"><br>
 		<p>Включить или выключить баннер :</p><br>
 		<p><input type="radio" name="on_off" value="On" checked>Вкл.</p><br>
 		<p><input type="radio" name="on_off" value="Off">Выкл.</p><br>
@@ -34,8 +38,10 @@
 		</select><br>
 		<p>Комментарий :</p><Br>
    		<textarea name="comment" cols="40" rows="3"></textarea><br>
-  		<p><input type="submit" name="submit" value="Редактирование">
-   		<input type="reset" value="Очистить"></p>
+	    <div class="form-actions">
+		    <button type="submit" class="btn btn-primary">Редактирование</button>
+		    <button type="button" class="btn">Очистить</button>
+    	</div>
 	</form>
 </body>
 </html>

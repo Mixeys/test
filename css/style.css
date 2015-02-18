@@ -1,0 +1,19 @@
+@import url('reset.css'); 
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+	font-family: 'Anonymous Pro', ;
+	font-size: 16px;
+    line-height: 1.428571429;
+    color: #060505;
+    background-color: #f8f8f8;
+}
+p{
+	text-decoration: underline;
+    text-shadow: 1px 1px 2px black, 0 0 1em black; /* Параметры тени */
+    color: white; /* Белый цвет текста */
+    font-size: 1em;
+}
