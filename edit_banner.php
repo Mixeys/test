@@ -6,11 +6,14 @@
 	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
 	<link href='http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
 </head>
 <body>
+	<div id="formHide">Свернуть форму</div>
 	<h2>Редактирование баннера</h2>
 	<hr>
-	<form method="post" action="add_banner.php" name="my_form" class="form-horizontal">
+	<form method="post" action="add_banner.php" name="my_form" id="formBanner">
 		<p>Название :</p><br>
 		<input type="text" name="label" placeholder="Name banner"><br>
 		<p>Включить или выключить баннер :</p><br>
