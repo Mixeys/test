@@ -1,5 +1,5 @@
 <?php
-    $banners = array("Banner 1", "Banner 2", "Banner 3", "Banner 4", "Banner 5");
+    $banners = array( array('id' => 1, 'name' => "Banner 1" ), array ( 'id' => 2, 'name' =>  "Banner 2"), array ( 'id' => 3, 'name' =>  "Banner 3"), array ( 'id' => 4, 'name' =>  "Banner 4"), array ( 'id' => 5, 'name' =>  "Banner 5"));
 ?>
 
 
@@ -20,12 +20,20 @@
         </tr>
         <?php foreach($banners as $key => $value){ ?>
         <tr>
-            <td><?=$key ?></td>
-            <td><?=$value ?></td>
+           <?php foreach ($value as $k => $v) {
+                    if ($k == 'id'){
+                        echo "<td>";
+                        echo htmlspecialchars($v);}
+                        echo "</td>";
+                    if ($k == 'name'){
+                        echo "<td>";
+                        echo htmlspecialchars($v);}
+                        echo "</td>";
+                         } ?>
             <td><a href="edit.php"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
-            <td><a href=""><img src="images/Documents%20Delete.png" alt=""></a></td>
+            <td><a href=""><img src="images/Documents%20Delete.png" alt=""></a></td>       
         </tr>
-        <?php } ?>
+        <?php   } ?>
     </table>
 </body>
 </html>
