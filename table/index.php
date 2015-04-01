@@ -4,12 +4,9 @@
         die('Ошибка соединения: ' . mysql_error());
     }
     mysql_select_db('temp') or die(' not db ');
-    $result = mysql_query("SELECT id FROM `baneer`") or die(' not query: ' . mysql_error());
-    
-    while ($row = mysql_fetch_assoc($result)){
-        $res = mysql_query("SELECT * FROM `baneer`");
-        $arr = mysql_fetch_assoc($res); 
-        $banners[] = $arr;
+    $res = mysql_query("SELECT * FROM `baneer`");
+    while ($row = mysql_fetch_assoc($res)){    
+        $banners[] = $row;
     }
 ?>
 
@@ -37,7 +34,7 @@
             <td>
                 <?php echo htmlspecialchars($banner['name']);?>
             </td>
-            <td><a href="edit.php?id=<?php echo $banner['id'];?>"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
+            <td><a href="edit.php?id="<?php echo $banner['id'];?>"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
             <td><a href=""><img src="images/Documents%20Delete.png" alt=""></a></td>       
         </tr>
         <?php endforeach ?>
