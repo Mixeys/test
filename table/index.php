@@ -34,7 +34,7 @@
             <td>
                 <?php echo htmlspecialchars($banner['name']);?>
             </td>
-            <td><a href="edit.php?id="<?php echo $banner['id'];?>"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
+            <td><a href='edit.php?id="<?php echo $banner['id'];?>" '><img src="images/Documents%20Edit%202.png" alt=""></a></td>
             <td><a href=""><img src="images/Documents%20Delete.png" alt=""></a></td>       
         </tr>
         <?php endforeach ?>
