@@ -1,5 +1,20 @@
 <?php
-    $banners = array( array('id' => 1, 'name' => "Banner 1" ), array ( 'id' => 2, 'name' =>  "Banner 2"), array ( 'id' => 3, 'name' =>  "Banner 3"), array ( 'id' => 4, 'name' =>  "Banner 4"), array ( 'id' => 5, 'name' =>  "Banner 5"));
+    $link = mysql_connect("localhost","mixa","mixa");
+    if (!$link) {
+        die('Ошибка соединения: ' . mysql_error());
+    }
+    echo "Success connect";
+    mysql_select_db('temp') or die(' not db ');
+    $result = mysql_query("SELECT id FROM `baneer`") or die(' not query: ' . mysql_error());
+    
+    for($i =1; $row = mysql_fetch_assoc($result); $i++){
+        $res = mysql_query("SELECT id, name FROM `baneer` WHERE `id`= '$i'") or die(' not query: ' . mysql_error());
+        $arr = mysql_fetch_assoc($res); 
+        $banners[$i - 1] = $arr;
+    }
+    
+    mysql_close($link);
+    // $banners = array( array('id' => 1, 'name' => "Banner 1" ), array ( 'id' => 2, 'name' =>  "Banner 2"), array ( 'id' => 3, 'name' =>  "Banner 3"), array ( 'id' => 4, 'name' =>  "Banner 4"), array ( 'id' => 5, 'name' =>  "Banner 5"));
 ?>
 
 
