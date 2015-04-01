@@ -3,18 +3,14 @@
     if (!$link) {
         die('Ошибка соединения: ' . mysql_error());
     }
-    echo "Success connect";
     mysql_select_db('temp') or die(' not db ');
     $result = mysql_query("SELECT id FROM `baneer`") or die(' not query: ' . mysql_error());
     
-    for($i =1; $row = mysql_fetch_assoc($result); $i++){
-        $res = mysql_query("SELECT id, name FROM `baneer` WHERE `id`= '$i'") or die(' not query: ' . mysql_error());
+    while ($row = mysql_fetch_assoc($result)){
+        $res = mysql_query("SELECT * FROM `baneer`");
         $arr = mysql_fetch_assoc($res); 
-        $banners[$i - 1] = $arr;
+        $banners[] = $arr;
     }
-    
-    mysql_close($link);
-    // $banners = array( array('id' => 1, 'name' => "Banner 1" ), array ( 'id' => 2, 'name' =>  "Banner 2"), array ( 'id' => 3, 'name' =>  "Banner 3"), array ( 'id' => 4, 'name' =>  "Banner 4"), array ( 'id' => 5, 'name' =>  "Banner 5"));
 ?>
 
 
@@ -33,22 +29,18 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <?php foreach($banners as $key => $value){ ?>
+        <?php foreach($banners as $banner): ?>
         <tr>
-           <?php foreach ($value as $k => $v) {
-                    if ($k == 'id'){
-                        echo "<td>";
-                        echo htmlspecialchars($v);}
-                        echo "</td>";
-                    if ($k == 'name'){
-                        echo "<td>";
-                        echo htmlspecialchars($v);}
-                        echo "</td>";
-                         } ?>
-            <td><a href="edit.php"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
+            <td>
+                <?php echo $banner['id'];?>
+            </td>
+            <td>
+                <?php echo htmlspecialchars($banner['name']);?>
+            </td>
+            <td><a href="edit.php?id=<?php echo $banner['id'];?>"><img src="images/Documents%20Edit%202.png" alt=""></a></td>
             <td><a href=""><img src="images/Documents%20Delete.png" alt=""></a></td>       
         </tr>
-        <?php   } ?>
+        <?php endforeach ?>
     </table>
 </body>
 </html>
